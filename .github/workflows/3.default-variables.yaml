@@ -1,4 +1,4 @@
-name: Debug All Variables
+name: default_Variables
 
 on:
   workflow_dispatch:
