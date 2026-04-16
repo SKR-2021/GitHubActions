@@ -1,0 +1,32 @@
+name: Debug All Variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (optional but good practice)
+        uses: actions/checkout@v4
+
+      - name: Print all environment variables
+        run: |
+          echo "===== ENV VARIABLES ====="
+          printenv | sort
+
+      - name: Print GitHub context (JSON)
+        run: |
+          echo "===== GITHUB CONTEXT ====="
+          echo '${{ toJson(github) }}'
+
+      - name: Print runner context
+        run: |
+          echo "===== RUNNER CONTEXT ====="
+          echo '${{ toJson(runner) }}'
+
+      - name: Print job context
+        run: |
+          echo "===== JOB CONTEXT ====="
+          echo '${{ toJson(job) }}'
